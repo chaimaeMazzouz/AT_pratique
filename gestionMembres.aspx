@@ -1,17 +1,18 @@
-﻿<%@ Page Theme="membreTheme" Title="" Language="C#" MasterPageFile="~/CompagnieVoyage.Master" AutoEventWireup="true" CodeBehind="membre.aspx.cs" Inherits="AT7_AT8_projet.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CompagnieVoyage.Master" AutoEventWireup="true" CodeBehind="gestionMembres.aspx.cs" Inherits="AT7_AT8_projet.WebForm5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container bootstrap snippets bootdey">
- 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading ">
-                            <img class="rounded-circle  img-thumbnail"  width="100" src="Images/profile.png" alt="Membre">
-                            <asp:Label ID="lblHeader"  runat="server" class="font-weight-bold"></asp:Label>
-                    </div>
-                    <div class="panel-body"> 
-                        <div class="table-responsive">
-                        <table class="table">
+    <div class="container">
+         <h2>Gestion des membres</h2>
+         <div class="table-responsive" >
+                        <table class="table" >
+                              
+                                 <tr>
+                                    <td><strong>Pseudo :</strong></td>
+                                    <td>
+                                        
+                                        <asp:TextBox ID="TextBoxPseudo" runat="server" class="form-control" type="text" ReadOnly="True"></asp:TextBox>
+                                        
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td><strong>Prénom :</strong></td>
                                     <td>
@@ -50,13 +51,12 @@
                                
                         </table>
                     </div>
-                </div>
-                </div>
-                 <asp:Button ID="BtnDeconnecter" runat="server" Text="Déconnecter"  CssClass="btn btn-primary" OnClick="BtnDeconnecter_Click" ></asp:Button>
-                 <asp:Button ID="BtnModifier" runat="server" Text="Modifier"  CssClass="btn btn-success pull-right" OnClick="BtnModifier_Click" ></asp:Button>
-               
-            </div>
-        </div>
-    </div>
-
+               <div >
+                <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover" AutoGenerateSelectButton="True" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+                </asp:GridView>
+              </div>
+                 <asp:Button ID="BtnModifier" runat="server" Text="Modifier"  CssClass="btn btn-success mr-4" OnClick="BtnModifier_Click"  ></asp:Button>
+       <asp:Button ID="BtnSupprimer" runat="server" Text="Supprimer"  CssClass="btn btn-primary " OnClick="BtnSupprimer_Click" ></asp:Button>
+     
+    &nbsp;</div>
 </asp:Content>

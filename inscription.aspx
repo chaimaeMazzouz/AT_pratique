@@ -11,7 +11,11 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="firstName" type="text" name="firstname" placeholder="Prénom" class="form-control bg-white border-left-0 border-md">
+                        
+                             <asp:TextBox runat="server" ID="firstName" type="text" name="firstname" placeholder="Prénom" class="form-control bg-white border-left-0 border-md"/>
+                      <%--  <asp:RequiredFieldValidator ID="RfvFirstName" runat="server" ErrorMessage="*" ForeColor="Red"  ControlToValidate="firstName"
+                    Display="Dynamic" SetFocusOnError="True" CssClass="alert-text"></asp:RequiredFieldValidator>--%>
+                      
                     </div>
 
                     <!-- Last Name -->
@@ -21,7 +25,9 @@
                                 <i class="fa fa-user text-muted"></i>
                             </span>
                         </div>
-                        <input id="lastName" type="text" name="lastname" placeholder="Nom" class="form-control bg-white border-left-0 border-md">
+                        <asp:TextBox runat="server" ID="lastName" type="text"  placeholder="Nom" class="form-control bg-white border-left-0 border-md"/>
+                          <%--<asp:RequiredFieldValidator ID="RfvLastName" runat="server" ErrorMessage="*"  ControlToValidate="lastName"
+                    Display="Dynamic" SetFocusOnError="True" ForeColor="Red" CssClass="alert-text"></asp:RequiredFieldValidator>--%>
                     </div>
                    </div>
                     <!-- Email Address -->
@@ -32,7 +38,7 @@
                                 <i class="fa fa-envelope text-muted"></i>
                             </span>
                         </div>
-                        <input id="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                        <asp:TextBox runat="server" ID="email" type="email" name="email" placeholder="Email Address" class="form-control bg-white border-left-0 border-md"/>
                     </div>
                        <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
@@ -40,11 +46,12 @@
                                 <i class="fa fa-car text-muted"></i>
                             </span>
                         </div>
-                        <input id="matricule" type="text" name="matricule" placeholder="Matricule" class="form-control bg-white border-left-0 border-md">
+                        <asp:TextBox runat="server" ID="matricule" type="text" name="matricule" placeholder="Matricule" class="form-control bg-white border-left-0 border-md"/>
                     </div>
                   </div>
-                 <!-- Password Confirmation -->
+                 
            <div class="row  mt-4 justify-content-md-center">
+               <!-- Service -->
                     <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
@@ -58,7 +65,7 @@
                           <asp:ListItem>Marketing</asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                 
+                 <!-- Catégorie -->
                     <div class="input-group col-lg-6 mb-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-white px-4 border-md border-right-0">
@@ -82,7 +89,7 @@
                                 <i class="fa fa-lock text-muted"></i>
                             </span>
                         </div>
-                        <input id="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                        <asp:TextBox runat="server" ID="password" type="password" name="password" placeholder="Password" class="form-control bg-white border-left-0 border-md"/>
                     </div>
 
                     <!-- Password Confirmation -->
@@ -103,15 +110,14 @@
                                 <i class="fa fa-key text-muted"></i>
                             </span>
                         </div>
-                        <input id="pseudo" type="Text" name="pseudo" placeholder="Pseudo" class="form-control bg-white border-left-0 border-md">
+                        <asp:TextBox runat="server" ID="pseudo" type="Text" name="pseudo" placeholder="Pseudo" class="form-control bg-white border-left-0 border-md"/>
                     </div>
                       </div>
                     <!-- Submit Button -->
                    <div class="row  mt-4 justify-content-md-center">
                     <div class="form-group col-lg-12 mx-auto mb-0">
-                        <a href="#" class="btn btn-primary btn-block py-2">
-                            <span class="font-weight-bold">Create your account</span>
-                        </a>
+                        <asp:Button runat="server" ID="btnAjout" cssClass="btn btn-primary btn-block py-2 font-weight-bold" Text="Créer un compte" OnClick="btnAjout_Click">
+                        </asp:Button>
                     </div>
                 </div>
 

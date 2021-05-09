@@ -47,11 +47,16 @@ namespace AT7_AT8_projet
                         Session["mail"] = dr[6].ToString();
                         Session["categ"] = dr[7].ToString();
                     }
-                    
+                    if(String.Equals(Session["categ"], "Membre"))
                         Response.Redirect("membre.aspx");
-                   
-                  
-                   
+                   else if(String.Equals(Session["categ"], "Administrateur"))
+                     {
+                        Response.Redirect("admin.aspx");
+                    }
+                         
+
+
+
                 }
                 else
                 {

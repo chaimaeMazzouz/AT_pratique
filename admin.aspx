@@ -1,8 +1,6 @@
-﻿<%@ Page Theme="membreTheme" Title="" Language="C#" MasterPageFile="~/CompagnieVoyage.Master" AutoEventWireup="true" CodeBehind="membre.aspx.cs" Inherits="AT7_AT8_projet.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CompagnieVoyage.Master" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="AT7_AT8_projet.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container bootstrap snippets bootdey">
- 
-        <div class="row">
+     <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-info">
                     <div class="panel-heading ">
@@ -52,11 +50,18 @@
                     </div>
                 </div>
                 </div>
-                 <asp:Button ID="BtnDeconnecter" runat="server" Text="Déconnecter"  CssClass="btn btn-primary" OnClick="BtnDeconnecter_Click" ></asp:Button>
-                 <asp:Button ID="BtnModifier" runat="server" Text="Modifier"  CssClass="btn btn-success pull-right" OnClick="BtnModifier_Click" ></asp:Button>
-               
-            </div>
-        </div>
-    </div>
-
+                 <asp:Button ID="BtnModifier" runat="server" Text="Modifier"  CssClass="btn btn-success pull-right" OnClick="BtnModifier_Click"></asp:Button>
+                </div>
+              <div class="container">
+                  <h2>Liste des membres</h2>
+                <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover">
+                </asp:GridView>
+              </div>
+                
+                 <!--Registered -->
+                    <div class="text-center w-100">
+                        <p class="text-muted font-weight-bold"><a href="gestionMembres.aspx" class="text-primary ml-2">Gérer les comptes </a></p>
+                    </div>
+                 <asp:Button ID="BtnDeconnecter" runat="server" Text="Déconnecter"  CssClass="btn btn-primary" OnClick="BtnDeconnecter_Click"  ></asp:Button>
+             </div>     
 </asp:Content>

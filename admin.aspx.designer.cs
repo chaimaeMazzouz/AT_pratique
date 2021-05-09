@@ -11,35 +11,44 @@ namespace AT7_AT8_projet
 {
 
 
-    public partial class WebForm2
+    public partial class WebForm4
     {
 
         /// <summary>
-        /// firstName control.
+        /// lblHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstName;
+        protected global::System.Web.UI.WebControls.Label lblHeader;
 
         /// <summary>
-        /// lastName control.
+        /// Prenom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastName;
+        protected global::System.Web.UI.WebControls.TextBox Prenom;
 
         /// <summary>
-        /// email control.
+        /// Nom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.TextBox Nom;
+
+        /// <summary>
+        /// Email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Email;
 
         /// <summary>
         /// matricule control.
@@ -60,39 +69,30 @@ namespace AT7_AT8_projet
         protected global::System.Web.UI.WebControls.DropDownList DdlService;
 
         /// <summary>
-        /// DdlCategorie control.
+        /// BtnModifier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlCategorie;
+        protected global::System.Web.UI.WebControls.Button BtnModifier;
 
         /// <summary>
-        /// password control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// pseudo control.
+        /// BtnDeconnecter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pseudo;
-
-        /// <summary>
-        /// btnAjout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjout;
+        protected global::System.Web.UI.WebControls.Button BtnDeconnecter;
     }
 }

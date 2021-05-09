@@ -88,6 +88,8 @@
     <Content Include="index.aspx" />
     <Content Include="inscription.aspx" />
     <Content Include="membre.aspx" />
+    <Content Include="admin.aspx" />
+    <Content Include="gestionMembres.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompagnieVoyage.Master.cs">
@@ -121,6 +123,20 @@
     </Compile>
     <Compile Include="membre.aspx.designer.cs">
       <DependentUpon>membre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gestionMembres.aspx.cs">
+      <DependentUpon>gestionMembres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gestionMembres.aspx.designer.cs">
+      <DependentUpon>gestionMembres.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
