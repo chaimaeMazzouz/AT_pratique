@@ -50,12 +50,9 @@ namespace AT7_AT8_projet
                     if(String.Equals(Session["categ"], "Membre"))
                         Response.Redirect("membre.aspx");
                    else if(String.Equals(Session["categ"], "Administrateur"))
-                     {
                         Response.Redirect("admin.aspx");
-                    }
-                         
-
-
+                    else if (String.Equals(Session["categ"], "Super Administrateur"))
+                        Response.Redirect("superAdmin.aspx");
 
                 }
                 else

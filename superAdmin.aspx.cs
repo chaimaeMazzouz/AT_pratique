@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace AT7_AT8_projet
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class WebForm6 : System.Web.UI.Page
     {
         SqlConnection cn_ComVoyage = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString);
         String pseudo;
@@ -30,7 +30,7 @@ namespace AT7_AT8_projet
         void Remplir_GridView()
         {
             cn_ComVoyage.Open();
-            SqlCommand cmd_rp = new SqlCommand("select*from membre where categorie ='Membre'",cn_ComVoyage);
+            SqlCommand cmd_rp = new SqlCommand("select*from membre where categorie ='Membre' or  categorie='Administrateur'", cn_ComVoyage);
             GridView1.DataSource = cmd_rp.ExecuteReader();
             GridView1.DataBind();
             cn_ComVoyage.Close();

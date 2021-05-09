@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace AT7_AT8_projet
 {
-    public partial class WebForm5 : System.Web.UI.Page
+    public partial class WebForm7 : System.Web.UI.Page
     {
         SqlConnection cn_ComVoyage = new SqlConnection(ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
@@ -20,18 +20,17 @@ namespace AT7_AT8_projet
             }
             else
                 Server.Transfer("index.aspx");
+                
         }
         void Remplir_GridView()
         {
             cn_ComVoyage.Open();
-            SqlCommand cmd_rp = new SqlCommand("select pseudo,matricule,nom,prenom,service_,mail,categorie from membre where categorie ='Membre'", cn_ComVoyage);
+            SqlCommand cmd_rp = new SqlCommand("select pseudo,matricule,nom,prenom,service_,mail,categorie from membre where categorie ='Membre' or categorie ='Administrateur'", cn_ComVoyage);
             GridView1.DataSource = cmd_rp.ExecuteReader();
             GridView1.DataBind();
             cn_ComVoyage.Close();
-            
-        }
 
-      
+        }
 
         protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
@@ -61,11 +60,11 @@ namespace AT7_AT8_projet
             cn_ComVoyage.Close();
             Remplir_GridView();
             TextBoxPseudo.Text = "";
-            Prenom.Text ="";
+            Prenom.Text = "";
             Nom.Text = "";
-            Email.Text ="";
-            matricule.Text ="";
-            DdlService.SelectedIndex=0;
+            Email.Text = "";
+            matricule.Text = "";
+            DdlService.SelectedIndex = 0;
         }
     }
 }

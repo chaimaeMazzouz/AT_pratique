@@ -17,18 +17,20 @@ namespace AT7_AT8_projet
         String pseudo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
-            if ((Session["matricule"] != null)&& (Session["nom"] != null)&& (Session["prenom"] != null)&& (Session["service"] != null) && (Session["mail"] != null))
-            {
-                
-                matricule.Text = Session["matricule"].ToString();
-                Nom.Text = Session["nom"].ToString();
-                Prenom.Text = Session["prenom"].ToString();
-                DdlService.SelectedValue = Session["service"].ToString();
-                Email.Text = Session["mail"].ToString();
-                lblHeader.Text = $"{Session["nom"]} {Session["prenom"]}";
-                
-            }
+            if (!IsPostBack)
+                if ((Session["matricule"] != null) && (Session["nom"] != null) && (Session["prenom"] != null) && (Session["service"] != null) && (Session["mail"] != null))
+                {
+
+                    matricule.Text = Session["matricule"].ToString();
+                    Nom.Text = Session["nom"].ToString();
+                    Prenom.Text = Session["prenom"].ToString();
+                    DdlService.SelectedValue = Session["service"].ToString();
+                    Email.Text = Session["mail"].ToString();
+                    lblHeader.Text = $"{Session["nom"]} {Session["prenom"]}";
+
+                }
+                else
+                    Server.Transfer("index.aspx");
             pseudo = Session["pseudo"].ToString();
 
 
