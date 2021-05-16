@@ -4,9 +4,17 @@
         <h1>Gestion Chauffeur </h1>
             <asp:GridView ID="gv_Chauffeur" runat="server" AutoGenerateColumns="False"
                 DataKeyNames="ID_chauffeur" OnRowCancelingEdit="gv_Chauffeur_RowCancelingEdit" CssClass="table table-responsive table-striped table-hover"
-                OnRowDeleting="gv_Chauffeur_RowDeleting" OnRowUpdating="gv_Chauffeur_RowUpdating">
+                OnRowDeleting="gv_Chauffeur_RowDeleting" OnRowUpdating="gv_Chauffeur_RowUpdating" OnRowEditing="gv_Chauffeur_RowEditing" OnRowCreated="gv_Chauffeur_RowCreated">
                 <Columns>
                     <asp:TemplateField HeaderText="ID Chauffeur">
+                        <%-- <HeaderTemplate>
+            ID Chauffeur:
+            <asp:DropDownList ID="ddlIdCh" runat="server" AutoPostBack = "true" OnSelectedIndexChanged="ddlIdCh_SelectedIndexChanged"
+            AppendDataBoundItems = "true">
+            <asp:ListItem Text = "ALL" Value = "ALL"></asp:ListItem>
+            <asp:ListItem Text = "Top 10" Value = "10"></asp:ListItem>
+            </asp:DropDownList>
+        </HeaderTemplate>--%>
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("ID_chauffeur") %>'></asp:TextBox>
                         </EditItemTemplate>

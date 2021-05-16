@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace AT7_AT8_projet
@@ -24,15 +25,38 @@ namespace AT7_AT8_projet
                 }
                 else
                     Server.Transfer("index.aspx");
+            if (String.Equals(Session["service"], "Ressources Humaines"))
+            {
+                hlTable.Text = "Gestion chauffeur";
+                hlTable.NavigateUrl = "tableChauffeur.aspx";
+            }
+            else if (String.Equals(Session["service"], "Logistique"))
+            {
+                hlTable.Text = "Gestion véhicule";
+                hlTable.NavigateUrl = "tableVehicule.aspx";
+            }
+            else if (String.Equals(Session["service"], "Marketing"))
+            {
+                hlTable.Text = "Gestion voyage et billet";
+                hlTable.NavigateUrl = "tablesVoyageBillet.aspx";
+            }
             pseudo = Session["pseudo"].ToString();
             Remplir_GridView();
         }
         void Remplir_GridView()
         {
+            DataTable dt = new DataTable();
             cn_ComVoyage.Open();
             SqlCommand cmd_rp = new SqlCommand("select*from membre where categorie ='Membre'",cn_ComVoyage);
             GridView1.DataSource = cmd_rp.ExecuteReader();
             GridView1.DataBind();
+            SqlDataAdapter sqlDa = new SqlDataAdapter(cmd_rp);
+            sqlDa.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
             cn_ComVoyage.Close();
         }
 
