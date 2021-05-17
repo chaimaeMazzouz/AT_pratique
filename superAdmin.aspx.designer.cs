@@ -87,6 +87,15 @@ namespace AT7_AT8_projet
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
+        /// hlTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlTable;
+
+        /// <summary>
         /// BtnDeconnecter control.
         /// </summary>
         /// <remarks>

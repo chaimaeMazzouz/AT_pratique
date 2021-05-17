@@ -60,7 +60,10 @@
                 
                  <!--Registered -->
                     <div class="text-center w-100">
-                        <p class="text-muted font-weight-bold"><a href="gestionAdminMembre.aspx" class="text-primary ml-2">Gérer les comptes </a></p>
+                        <p class="text-muted font-weight-bold">
+                            <a href="gestionAdminMembre.aspx" class="text-primary ml-2">Gérer les comptes </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<asp:HyperLink ID="hlTable" runat="server" Text="" NavigateUrl=""></asp:HyperLink>
+                        </p>
                     </div>
                  <asp:Button ID="BtnDeconnecter" runat="server" Text="Déconnecter"  CssClass="btn btn-primary" OnClick="BtnDeconnecter_Click"  ></asp:Button>
              </div>     

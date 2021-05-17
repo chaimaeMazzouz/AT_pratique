@@ -54,7 +54,10 @@
                 </div>
                  <asp:Button ID="BtnDeconnecter" runat="server" Text="Déconnecter"  CssClass="btn btn-primary" OnClick="BtnDeconnecter_Click" ></asp:Button>
                  <asp:Button ID="BtnModifier" runat="server" Text="Modifier"  CssClass="btn btn-success pull-right" OnClick="BtnModifier_Click" ></asp:Button>
-               
+                <div class="text-center w-100">
+                        <p class="text-muted font-weight-bold">
+                            <asp:HyperLink ID="hlTable" runat="server" Text="" NavigateUrl=""></asp:HyperLink></p>
+                    </div>
             </div>
         </div>
     </div>

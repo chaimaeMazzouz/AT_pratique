@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -16,13 +12,9 @@ namespace AT7_AT8_projet
         void Remplir_GridView()
         {
             cn_ComVoyage.Open();
-            //SqlCommand cmd_rp = new SqlCommand("select*from chauffeur", cn_ComVoyage);
-            //gv_Chauffeur.DataSource = cmd_rp.ExecuteReader();
-            //gv_Chauffeur.DataBind();
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand("select*from chauffeur", cn_ComVoyage);
-            SqlDataAdapter sda = new SqlDataAdapter();
-            sda.SelectCommand = cmd;
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(dt);
             gv_Chauffeur.DataSource = dt;
             gv_Chauffeur.DataBind();
@@ -32,8 +24,9 @@ namespace AT7_AT8_projet
         {
             if (!IsPostBack)
             {
-                ViewState["Filter"] = "ALL";
+               
                 Remplir_GridView();
+                BindChauffeur();
             }
 
         }
@@ -84,46 +77,47 @@ namespace AT7_AT8_projet
             Remplir_GridView();
         }
 
-        protected void ddlIdCh_SelectedIndexChanged(object sender, EventArgs e)
+        void BindChauffeur()
         {
-            DropDownList ddlChauffeur = (DropDownList)sender;
-            ViewState["Filter"] = ddlChauffeur.SelectedValue;
-            this.Remplir_GridView();
-        }
-        void BindCountryList(DropDownList ddlCountry)
-        {
-            //cn_ComVoyage.Open();
-            SqlDataAdapter sda = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand("select ID_Chauffeur  from chauffeur ",cn_ComVoyage);
-            cmd.Connection = cn_ComVoyage;
-            sda.SelectCommand = cmd;
             DataTable dt = new DataTable();
-            sda.Fill(dt);
-            ddlCountry.DataSource = dt;
-            ddlCountry.DataTextField = "ID_Chauffeur";
-            ddlCountry.DataValueField = "ID_Chauffeur";
-            ddlCountry.DataBind();
-            ddlCountry.Items.FindByValue(ViewState["Filter"].ToString()).Selected = true;
-            //cn_ComVoyage.Close();
+            
+                cn_ComVoyage.Open();
+                SqlCommand cmd = new SqlCommand("Select Distinct  ID_Chauffeur  from chauffeur", cn_ComVoyage);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                cn_ComVoyage.Close();
+                ddlIdChauffeur.DataSource = dt;
+                ddlIdChauffeur.DataTextField = "ID_Chauffeur";
+                ddlIdChauffeur.DataValueField = "ID_Chauffeur";
+                ddlIdChauffeur.DataBind();
+                cn_ComVoyage.Close();
+            
         }
 
-        protected void gv_Chauffeur_RowCreated(object sender, GridViewRowEventArgs e)
+        protected void ddlIdChauffeur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.Header)
-            {
-                Label lbl = new Label();
-                lbl.Text = "ID Chauffeur:";
-                e.Row.Cells[0].Controls.Add(lbl);
-                DropDownList ddl = new DropDownList();
-                ddl.ID = "ddlIdCh";  
-                ddl.AutoPostBack = true;
-                ddl.Items.Add(new ListItem("All", "ALL"));
-                ddl.Items.Add(new ListItem("TOP 10", "10"));
-                ddl.AppendDataBoundItems = true;
-                ddl.SelectedIndexChanged += new EventHandler(ddlIdCh_SelectedIndexChanged);
-                this.BindCountryList(ddl);
-                e.Row.Cells[0].Controls.Add(ddl);
-            }
+            DataTable dt = new DataTable();
+           
+                cn_ComVoyage.Open();
+                if (ddlIdChauffeur.SelectedValue != "Tous")
+                {
+                    SqlCommand cmd = new SqlCommand("select * from Chauffeur where ID_Chauffeur =@id", cn_ComVoyage);
+                    cmd.Parameters.AddWithValue("@id", ddlIdChauffeur.SelectedValue);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                else 
+                {
+                    SqlCommand cmd = new SqlCommand("select * from Chauffeur", cn_ComVoyage);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                cn_ComVoyage.Close();
+                gv_Chauffeur.DataSource = dt;
+                gv_Chauffeur.DataBind();
+            
         }
+
+      
     }
 }

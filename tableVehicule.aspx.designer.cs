@@ -11,25 +11,25 @@ namespace AT7_AT8_projet
 {
 
 
-    public partial class WebForm8
+    public partial class WebForm9
     {
 
         /// <summary>
-        /// ddlIdChauffeur control.
+        /// ddlIdVehicule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIdChauffeur;
+        protected global::System.Web.UI.WebControls.DropDownList ddlIdVehicule;
 
         /// <summary>
-        /// gv_Chauffeur control.
+        /// gv_Vehicule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv_Chauffeur;
+        protected global::System.Web.UI.WebControls.GridView gv_Vehicule;
     }
 }

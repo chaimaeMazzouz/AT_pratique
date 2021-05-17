@@ -31,6 +31,21 @@ namespace AT7_AT8_projet
                 }
                 else
                     Server.Transfer("index.aspx");
+            if (String.Equals(Session["service"], "Ressources Humaines"))
+            {
+                hlTable.Text = "Gestion chauffeur";
+                hlTable.NavigateUrl = "tableChauffeur.aspx";
+            }
+            else if (String.Equals(Session["service"], "Logistique"))
+            {
+                hlTable.Text = "Gestion véhicule";
+                hlTable.NavigateUrl = "tableVehicule.aspx";
+            }
+            else if (String.Equals(Session["service"], "Marketing"))
+            {
+                hlTable.Text = "Gestion voyage et billet";
+                hlTable.NavigateUrl = "tablesVoyageBillet.aspx";
+            }
             pseudo = Session["pseudo"].ToString();
 
 

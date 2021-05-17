@@ -28,5 +28,21 @@ namespace AT7_AT8_projet
             Server.Transfer("index.aspx");
 
         }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            SqlCommand cmd_pseudo = new SqlCommand("Select count(*) from membre where pseudo=@numPs");
+            cmd_pseudo.Connection = cn_ComVoyage;
+            SqlParameter pnum = new SqlParameter("@numPs", SqlDbType.VarChar);
+            cmd_pseudo.Parameters.Add(pnum);
+            pnum.Value = args.Value.ToString();
+            cn_ComVoyage.Open();
+            int nbre = (int)cmd_pseudo.ExecuteScalar();
+            if (nbre != 0)
+                args.IsValid = false;
+            else
+                args.IsValid = true;
+            cn_ComVoyage.Close();
+        }
     }
 }

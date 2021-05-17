@@ -93,6 +93,8 @@
     <Content Include="superAdmin.aspx" />
     <Content Include="gestionAdminMembre.aspx" />
     <Content Include="tableChauffeur.aspx" />
+    <Content Include="tableVehicule.aspx" />
+    <Content Include="tablesVoyageBillet.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompagnieVoyage.Master.cs">
@@ -161,6 +163,20 @@
     </Compile>
     <Compile Include="tableChauffeur.aspx.designer.cs">
       <DependentUpon>tableChauffeur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tableVehicule.aspx.cs">
+      <DependentUpon>tableVehicule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tableVehicule.aspx.designer.cs">
+      <DependentUpon>tableVehicule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tablesVoyageBillet.aspx.cs">
+      <DependentUpon>tablesVoyageBillet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tablesVoyageBillet.aspx.designer.cs">
+      <DependentUpon>tablesVoyageBillet.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
